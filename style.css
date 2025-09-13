@@ -1,0 +1,133 @@
+/*Default light theme */
+:root{
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --input-bg: #fff;
+    --input-border: #ccc;
+    --button-bg: #007bff;
+    --button-text:#fff;
+}
+/*Dark theme */
+[data-theme = "dark"]{
+    --bg-color: #222;
+    --text-color:#f4f4f4;
+    --input-bg:#333;
+    --input-border:#555;
+    --button-bg:#555;
+    --button-text:#f4f4f4;
+}
+/*Custom theme */
+[data-theme = "custom"]{
+    --bg-color:#f0e4d7;
+    --text-color:#4a2c2a;
+    --input-bg:#fff3e0;
+    --input-border:#d4a59a;
+    --button-bg:#d4a59a;
+    --button-text:#4a2c2a;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: .6rem;
+    transition: all 0.3s ease;
+}
+.theme-selector{
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+}
+.theme-selector label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: clamp(.95rem,4vw,1rem);
+}
+.theme-selector select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: clamp(14px,4vw,16px);
+}
+.form-container{
+    background-color: var(--input-bg);
+    padding: clamp(15px,5vw,20px);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 10px;
+}
+h2{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: clamp(20px,6vw,24px);
+}
+.form-group{
+    margin-bottom: 12px;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: clamp(14px,4vw,16px);
+    font-weight: bold;
+}
+input,textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: clamp(14px,4vw,16px);
+    outline: none;
+    resize: vertical;
+}
+textarea{
+    min-height: 100px;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: clamp(14px,4vw,16px);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+button:hover{
+    opacity: 0.9;
+}
+/*Responsive Adjustments*/
+@media (max-width:600px){
+    body{
+        padding: 5px;
+    }
+    .form-container{
+        padding: 10px;
+    }
+    .theme-selector, .form-container{
+        max-width: 100%;
+    }
+    input,textarea, select,button{
+        padding: 6px;
+    }
+    h2{
+        font-size: clamp(18px,5vw,20px);
+    }
+}
